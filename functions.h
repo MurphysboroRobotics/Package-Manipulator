@@ -2,32 +2,110 @@
 
 #pragma systemFile	// eliminates warning for "unreferenced" functions
 
+int difference = abs(nMotorEncoder[RD]) - abs(nMotorEncoder[LD]);
+
 //Move Forward (Distance)
-void forwardd()
+void forward_enc(int distanceInDegrees)
 {
-		motor[RD] = -127;
-		motor[LD] = 127;
+	nMotorEncoder[RD] = 0;
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down right side to adjust for error
+				{
+					motor[RD] = -50;
+					motor[LD] = 42;
+				}
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down left side to adjust for error
+				{
+					motor[RD] = -50;
+					motor[LD] = 38;
+				}
+			while(abs(difference) <= 2 && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Drive both sides equally
+				{
+					motor[RD] = -50;
+					motor[LD] = 40;
+				}
+			motor[RD] = 0;
+			motor[LD] = 0;
 }
 
-//Move Backwards (Distance)
-void backward()
+//Move Backward (Distance)
+void backward_enc(int distanceInDegrees)
 {
-		motor[RD] = 127;
-		motor[LD] = -127;
+	nMotorEncoder[RD] = 0;
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down right side to adjust for error
+				{
+					motor[RD] = 50;
+					motor[LD] = -42;
+				}
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down left side to adjust for error
+				{
+					motor[RD] = 50;
+					motor[LD] = -38;
+				}
+			while(abs(difference) <= 2 && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Drive both sides equally
+				{
+					motor[RD] = 50;
+					motor[LD] = -40;
+				}
+			motor[RD] = 0;
+			motor[LD] = 0;
 }
 
-//Rotate Clockwise (Distance)
-void turnright()
+//Turn Right (Distance)
+void right_enc(int distanceInDegrees)
 {
-		motor[RD] = 127;
-		motor[LD] = 127;
+	nMotorEncoder[RD] = 0;
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down right side to adjust for error
+				{
+					motor[RD] = 50;
+					motor[LD] = 42;
+				}
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down left side to adjust for error
+				{
+					motor[RD] = 50;
+					motor[LD] = 38;
+				}
+			while(abs(difference) <= 2 && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Drive both sides equally
+				{
+					motor[RD] = 50;
+					motor[LD] = 40;
+				}
+			motor[RD] = 0;
+			motor[LD] = 0;
 }
 
-//Rotate Counter-Clockwise (Distance)
-void turnleft()
+//Turn left (Distance)
+void left_enc(int distanceInDegrees)
 {
-		motor[RD] = -127;
-		motor[LD] = -127;
+	nMotorEncoder[RD] = 0;
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down right side to adjust for error
+				{
+					motor[RD] = -50;
+					motor[LD] = -42;
+				}
+			while(abs(difference) > 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]) && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Slow down left side to adjust for error
+				{
+					motor[RD] = -50;
+					motor[LD] = -38;
+				}
+			while(abs(difference) <= 2 && abs(nMotorEncoder[RD]) < distanceInDegrees)
+				//Drive both sides equally
+				{
+					motor[RD] = -50;
+					motor[LD] = -40;
+				}
+			motor[RD] = 0;
+			motor[LD] = 0;
 }
 
 //Intake
