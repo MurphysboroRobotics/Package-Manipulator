@@ -1,9 +1,6 @@
 #pragma config(I2C_Usage, I2C1, i2cSensors)
-#pragma config(Sensor, in1,    LineR,          sensorLineFollower)
-#pragma config(Sensor, in2,    LineC,          sensorLineFollower)
-#pragma config(Sensor, in3,    LineL,          sensorLineFollower)
-#pragma config(Sensor, in4,    Arm,            sensorPotentiometer)
-#pragma config(Sensor, dgtl1,  Son,            sensorSONAR_inch)
+#pragma config(Sensor, in2,    ,               sensorLineFollower)
+#pragma config(Sensor, in8,    Arm,            sensorPotentiometer)
 #pragma config(Sensor, I2C_1,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign)
 #pragma config(Sensor, I2C_2,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign)
 #pragma config(Motor,  port2,           RD,            tmotorVex393HighSpeed_MC29, openLoop, encoderPort, I2C_1)
@@ -32,6 +29,34 @@ void pre_auton()
 //Autonomous
 task autonomous()
 {
+	forward_enc(965);
+	left_enc(340);
+	forward_enc(920);
+	right_enc(390);
+	forward_enc(355);
+	intake();
+	wait1Msec(1000);
+	stopmotors();
+	forward_enc(200);
+	intake();
+	wait1Msec(900);
+	stopmotors();
+	right_enc(800);
+	forward_enc(550);
+	left_enc(340);
+	forward_enc(925);
+	right_enc(400);
+	forward_enc(1200);
+	left_enc(340);
+	forward_enc(850);
+	outtake();
+	wait1Msec(900);
+	stopmotors();
+	backward_enc(350);
+	outtake();
+	wait1Msec(1000);
+	stopmotors();
+
 }
 
 //User Control
@@ -45,30 +70,30 @@ task usercontrol()
 			motor[LD]  = (vexRT[Ch1] + vexRT[Ch3])/2;  // (y + x)/2
 			motor[RD] = (vexRT[Ch1] - vexRT[Ch3])/2;  // (y - x)/2
 
-			//Arm
+			//Belt
 			if(vexRT[Btn5U] == 1)
 			{
-				motor[B] = 100;
+				motor[B] = 127;
 			}
 			else if(vexRT[Btn5D] == 1)
 			{
-				motor[B] = -100;
+				motor[B] = -127;
 			}
 			else
 			{
 				motor[B] = 0;
 			}
 
-			//Belt
+			//Arm
 			if(vexRT[Btn6U] == 1)
 			{
-				motor[RA] = 60;
-				motor[LA] = 60;
+				motor[RA] = 127;
+				motor[LA] = 127;
 			}
 			else if(vexRT[Btn6D] == 1)
 			{
-				motor[RA] = -60;
-				motor[LA] = -60;
+				motor[RA] = -127;
+				motor[LA] = -127;
 			}
 			else
 			{
