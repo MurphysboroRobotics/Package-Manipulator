@@ -30,33 +30,29 @@ void pre_auton()
 task autonomous()
 {
 	forward_enc(965);
-	left_enc(340);
-	forward_enc(920);
-	right_enc(390);
-	forward_enc(355);
+	left_enc(350);
+	forward_enc(930);
+	right_enc(380);
+	forward_enc(325);
 	intake();
 	wait1Msec(1000);
 	stopmotors();
-	forward_enc(200);
+	forward_enc(210);
 	intake();
 	wait1Msec(900);
 	stopmotors();
-	right_enc(800);
-	forward_enc(550);
-	left_enc(340);
-	forward_enc(925);
-	right_enc(400);
-	forward_enc(1200);
-	left_enc(340);
-	forward_enc(850);
+	right_enc(700);
+	forward_enc(3100);
 	outtake();
 	wait1Msec(900);
 	stopmotors();
 	backward_enc(350);
 	outtake();
-	wait1Msec(1000);
+	wait1Msec(900);
 	stopmotors();
-
+	left_enc(800);
+	forward_enc(2200);
+	right_enc(200);
 }
 
 //User Control

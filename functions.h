@@ -24,25 +24,25 @@ void forward_enc(int distanceInDegrees)
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]))
          //Slow down right side to adjust for error
       {
-         motor[RD] = -50;
-         motor[LD] = 42;
+         motor[RD] = -40;
+         motor[LD] = 34;
       }
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]))
          //Slow down left side to adjust for error
       {
-         motor[RD] = -50;
-         motor[LD] = 38;
+         motor[RD] = -40;
+         motor[LD] = 30;
       }
       if(abs(difference) < 2)
          //Drive both sides equally
       {
-         motor[RD] = -50;
-         motor[LD] = 40;
+         motor[RD] = -40;
+         motor[LD] = 32;
       }
    }
    //Braking motion to minimize drift
-   motor[RD] = 40;
-   motor[LD] = -30;
+   motor[RD] = 30;
+   motor[LD] = -22;
    pause();
    motor[RD] = 0;
    motor[LD] = 0;
@@ -61,25 +61,25 @@ void backward_enc(int distanceInDegrees)
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]))
          //Slow down right side to adjust for error
       {
-         motor[RD] = 50;
-         motor[LD] = -42;
+         motor[RD] = 40;
+         motor[LD] = -34;
       }
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]))
          //Slow down left side to adjust for error
       {
-         motor[RD] = 50;
-         motor[LD] = -38;
+         motor[RD] = 40;
+         motor[LD] = -30;
       }
       if(abs(difference) < 2)
          //Drive both sides equally
       {
-         motor[RD] = 50;
-         motor[LD] = -40;
+         motor[RD] = 40;
+         motor[LD] = -32;
       }
    }
    //Braking motion to minimize drift
-   motor[RD] = -40;
-   motor[LD] = 30;
+   motor[RD] = -30;
+   motor[LD] = 22;
    pause();
    motor[RD] = 0;
    motor[LD] = 0;
@@ -98,25 +98,25 @@ void right_enc(int distanceInDegrees)
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]))
          //Slow down right side to adjust for error
       {
-         motor[RD] = 50;
-         motor[LD] = 42;
+         motor[RD] = 40;
+         motor[LD] = 34;
       }
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]))
          //Slow down left side to adjust for error
       {
-         motor[RD] = 50;
-         motor[LD] = 38;
+         motor[RD] = 40;
+         motor[LD] = 30;
       }
       if(abs(difference) < 2)
          //Drive both sides equally
       {
-         motor[RD] = 50;
-         motor[LD] = 40;
+         motor[RD] = 40;
+         motor[LD] = 32;
       }
    }
    //Braking motion to minimize drift
-   motor[RD] = -40;
-   motor[LD] = -30;
+   motor[RD] = -30;
+   motor[LD] = -22;
    pause();
    motor[RD] = 0;
    motor[LD] = 0;
@@ -135,25 +135,25 @@ void left_enc(int distanceInDegrees)
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) > abs(nMotorEncoder[LD]))
          //Slow down right side to adjust for error
       {
-         motor[RD] = -50;
-         motor[LD] = -42;
+         motor[RD] = -40;
+         motor[LD] = -34;
       }
       if(abs(difference) >= 2 && abs(nMotorEncoder[RD]) < abs(nMotorEncoder[LD]))
          //Slow down left side to adjust for error
       {
-         motor[RD] = -50;
-         motor[LD] = -38;
+         motor[RD] = -40;
+         motor[LD] = -30;
       }
       if(abs(difference) < 2)
          //Drive both sides equally
       {
-         motor[RD] = -50;
-         motor[LD] = -40;
+         motor[RD] = -40;
+         motor[LD] = -32;
       }
    }
    //Braking motion to minimize drift
-   motor[RD] = 40;
-   motor[LD] = 30;
+   motor[RD] = 30;
+   motor[LD] = 22;
    pause();
    motor[RD] = 0;
    motor[LD] = 0;
